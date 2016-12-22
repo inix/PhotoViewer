@@ -16,7 +16,7 @@
 /**
  *  创建
  */
-+(instancetype)maneger
++(instancetype)manager
 {
     JJPhotoManager *mg = [[JJPhotoManager alloc]init];
     return mg;

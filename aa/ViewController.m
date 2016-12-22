@@ -51,7 +51,7 @@
 {
     
     UIImageView *view = (UIImageView *)tap.view;
-    JJPhotoManager *mg = [JJPhotoManager maneger];
+    JJPhotoManager *mg = [JJPhotoManager manager];
     mg.delegate = self;
     [mg showNetworkPhotoViewer:_imageArr urlStrArr:_picUrlArr selecView:view];
  

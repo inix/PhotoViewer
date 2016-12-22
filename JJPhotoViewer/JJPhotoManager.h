@@ -19,7 +19,7 @@
 /**
  *  创建
  */
-+(instancetype)maneger;
++(instancetype)manager;
 
 /**
     代理
