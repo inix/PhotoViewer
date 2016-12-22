@@ -27,22 +27,20 @@
 @property(nonatomic,weak)id<JJPhotoDelegate> delegate;
 
 
-
-
 #pragma mark - ❤️俩核心功能
 
 /**
  *  本地图片放大浏览    
  */
--(void)showLocalPhotoViewer:(NSArray *)imageViews selecView:(UIImageView *)selecView;
+-(void)showLocalPhotoViewer:(NSArray *)imageViews
+				  selecView:(UIImageView *)selecView;
 
 
 /**
  *  放大浏览网络图片
  */
--(void)showNetworkPhotoViewer:(NSArray *)imageViews urlStrArr:(NSArray *)urlStrArr selecView:(UIImageView *)selecView;
-
-
-
+-(void)showNetworkPhotoViewer:(NSArray *)imageViews
+					urlStrArr:(NSArray *)urlStrArr
+					selecView:(UIImageView *)selecView;
 
 @end

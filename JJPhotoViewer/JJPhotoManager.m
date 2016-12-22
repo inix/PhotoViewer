@@ -10,7 +10,6 @@
 //model
 #import "JJPhoto.h"
 
-
 @implementation JJPhotoManager
 
 /**
@@ -18,33 +17,45 @@
  */
 +(instancetype)manager
 {
-    JJPhotoManager *mg = [[JJPhotoManager alloc]init];
-    return mg;
+	static JJPhotoManager *sharedInst = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		sharedInst = [[JJPhotoManager alloc]init];
+	});
+    return sharedInst;
 }
-
 
 /**
  *  本地图片放大浏览
  */
--(void)showLocalPhotoViewer:(NSArray *)imageViews selecView:(UIImageView *)selecView
+-(void)showLocalPhotoViewer:(NSArray *)imageViews
+				  selecView:(UIImageView *)selecView
 {
-    [self setUpPhotoData:imageViews selecView:selecView urlStrArr:nil type:JJLocalWithLocalPhotoViewer];
+    [self setUpPhotoData:imageViews
+			   selecView:selecView
+			   urlStrArr:nil
+					type:JJLocalWithLocalPhotoViewer];
 }
-
 
 /**
  * 点击网络下载图片浏览
  */
--(void)showNetworkPhotoViewer:(NSArray *)imageViews urlStrArr:(NSArray *)urlStrArr selecView:(UIImageView *)selecView
+-(void)showNetworkPhotoViewer:(NSArray *)imageViews
+					urlStrArr:(NSArray *)urlStrArr
+					selecView:(UIImageView *)selecView
 {
     
-    [self setUpPhotoData:imageViews selecView:selecView urlStrArr:urlStrArr type:JJInternetWithInternetPhotoViewer];
+    [self setUpPhotoData:imageViews
+			   selecView:selecView
+			   urlStrArr:urlStrArr
+					type:JJInternetWithInternetPhotoViewer];
 }
 
-
-
 //拿到数据设置整体页面
--(void)setUpPhotoData:(NSArray *)imageViews  selecView:(UIImageView *)selecView urlStrArr:(NSArray *)urlStrArr  type:(JJPhotoViewerType)type
+-(void)setUpPhotoData:(NSArray *)imageViews
+			selecView:(UIImageView *)selecView
+			urlStrArr:(NSArray *)urlStrArr
+				 type:(JJPhotoViewerType)type
 {
     
     //点击的是第几个图片
@@ -57,7 +68,7 @@
     for (int i = 0; i < imageViews.count; i ++) {
         
         //创建模型
-        JJPhoto *photo =  [[JJPhoto alloc]init];
+        JJPhoto *photo =  [[JJPhoto alloc] init];
         
         //取出imageView
         UIImageView *imageView = imageViews[i];
@@ -97,9 +108,7 @@
     [mainScrollView setPhotoData:photoModelArr Type:type];
     //展示
     [self show:mainScrollView];
-    
 }
-
 
 //展示
 -(void)show:(UIScrollView *)mainScrollView
@@ -111,9 +120,5 @@
     [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:view];
     
 }
-
-
-
-
 
 @end
