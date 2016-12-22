@@ -17,7 +17,7 @@
 		2A24B9711B2A7590002BA5A7 /* JJMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B9691B2A7590002BA5A7 /* JJMainScrollView.m */; };
 		2A24B9721B2A7590002BA5A7 /* JJOneScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B96B1B2A7590002BA5A7 /* JJOneScrollView.m */; };
 		2A24B9731B2A7590002BA5A7 /* JJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B96D1B2A7590002BA5A7 /* JJPhoto.m */; };
-		2A24B9741B2A7590002BA5A7 /* JJPhotoManeger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B96F1B2A7590002BA5A7 /* JJPhotoManeger.m */; };
+		2A24B9741B2A7590002BA5A7 /* JJPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B96F1B2A7590002BA5A7 /* JJPhotoManager.m */; };
 		2A24B9751B2A7590002BA5A7 /* none.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A24B9701B2A7590002BA5A7 /* none.png */; };
 		2A24B9981B2A7C20002BA5A7 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B9781B2A7C20002BA5A7 /* MKAnnotationView+WebCache.m */; };
 		2A24B9991B2A7C20002BA5A7 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24B97A1B2A7C20002BA5A7 /* NSData+ImageContentType.m */; };
@@ -68,8 +68,8 @@
 		2A24B96B1B2A7590002BA5A7 /* JJOneScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJOneScrollView.m; sourceTree = "<group>"; };
 		2A24B96C1B2A7590002BA5A7 /* JJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhoto.h; sourceTree = "<group>"; };
 		2A24B96D1B2A7590002BA5A7 /* JJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhoto.m; sourceTree = "<group>"; };
-		2A24B96E1B2A7590002BA5A7 /* JJPhotoManeger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhotoManeger.h; sourceTree = "<group>"; };
-		2A24B96F1B2A7590002BA5A7 /* JJPhotoManeger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhotoManeger.m; sourceTree = "<group>"; };
+		2A24B96E1B2A7590002BA5A7 /* JJPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhotoManager.h; sourceTree = "<group>"; };
+		2A24B96F1B2A7590002BA5A7 /* JJPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhotoManager.m; sourceTree = "<group>"; };
 		2A24B9701B2A7590002BA5A7 /* none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none.png; sourceTree = "<group>"; };
 		2A24B9771B2A7C20002BA5A7 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		2A24B9781B2A7C20002BA5A7 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 				2A24B96B1B2A7590002BA5A7 /* JJOneScrollView.m */,
 				2A24B96C1B2A7590002BA5A7 /* JJPhoto.h */,
 				2A24B96D1B2A7590002BA5A7 /* JJPhoto.m */,
-				2A24B96E1B2A7590002BA5A7 /* JJPhotoManeger.h */,
-				2A24B96F1B2A7590002BA5A7 /* JJPhotoManeger.m */,
+				2A24B96E1B2A7590002BA5A7 /* JJPhotoManager.h */,
+				2A24B96F1B2A7590002BA5A7 /* JJPhotoManager.m */,
 				2A24B9701B2A7590002BA5A7 /* none.png */,
 			);
 			path = JJPhotoViewer;
@@ -364,7 +364,7 @@
 				2A24B99D1B2A7C20002BA5A7 /* SDWebImageDownloader.m in Sources */,
 				2A24B9471B2A7582002BA5A7 /* AppDelegate.m in Sources */,
 				2A24B9441B2A7582002BA5A7 /* main.m in Sources */,
-				2A24B9741B2A7590002BA5A7 /* JJPhotoManeger.m in Sources */,
+				2A24B9741B2A7590002BA5A7 /* JJPhotoManager.m in Sources */,
 				2A24B99F1B2A7C20002BA5A7 /* SDWebImageManager.m in Sources */,
 				2A24B9721B2A7590002BA5A7 /* JJOneScrollView.m in Sources */,
 				2A24B99A1B2A7C20002BA5A7 /* SDImageCache.m in Sources */,
@@ -560,6 +560,7 @@
 				2A24B9631B2A7582002BA5A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A24B9641B2A7582002BA5A7 /* Build configuration list for PBXNativeTarget "aaTests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +569,7 @@
 				2A24B9661B2A7582002BA5A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

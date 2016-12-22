@@ -1,5 +1,5 @@
 //
-//  JJPhotoManeger.h
+//  JJPhotoManager.h
 //  test
 //
 //  Created by KimBox on 15/4/28.
@@ -15,7 +15,7 @@
 #import "JJMainScrollView.h"
 
 
-@interface JJPhotoManeger : NSObject
+@interface JJPhotoManager : NSObject
 /**
  *  创建
  */

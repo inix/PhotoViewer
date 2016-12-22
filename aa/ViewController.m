@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JJPhotoManeger.h"
+#import "JJPhotoManager.h"
 
 @interface ViewController ()<JJPhotoDelegate>
 
@@ -51,7 +51,7 @@
 {
     
     UIImageView *view = (UIImageView *)tap.view;
-    JJPhotoManeger *mg = [JJPhotoManeger maneger];
+    JJPhotoManager *mg = [JJPhotoManager maneger];
     mg.delegate = self;
     [mg showNetworkPhotoViewer:_imageArr urlStrArr:_picUrlArr selecView:view];
  

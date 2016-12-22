@@ -1,24 +1,24 @@
 //
-//  JJPhotoManeger.m
+//  JJPhotoManager.m
 //  test
 //
 //  Created by KimBox on 15/4/28.
 //  Copyright (c) 2015年 KimBox. All rights reserved.
 //
 
-#import "JJPhotoManeger.h"
+#import "JJPhotoManager.h"
 //model
 #import "JJPhoto.h"
 
 
-@implementation JJPhotoManeger
+@implementation JJPhotoManager
 
 /**
  *  创建
  */
 +(instancetype)maneger
 {
-    JJPhotoManeger *mg = [[JJPhotoManeger alloc]init];
+    JJPhotoManager *mg = [[JJPhotoManager alloc]init];
     return mg;
 }
 
