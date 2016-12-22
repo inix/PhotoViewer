@@ -31,8 +31,9 @@
 @property(nonatomic,weak)UIImageView *originalImageView;
 
 @end
-@implementation JJOneScrollView
 
+
+@implementation JJOneScrollView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -63,16 +64,11 @@
         [twoTap setNumberOfTapsRequired:2];
         self.twoTap = twoTap;
        
-        
         //系统默认的 双击单机共存 但是速度有点慢
        // [tap requireGestureRecognizerToFail:twoTap];
-       
-        
     }
     return self;
 }
-
-
 
 #pragma mark - ❤️本地加载图
 -(void)setLocalImage:(UIImageView *)imageView
@@ -96,41 +92,29 @@
         self.userInteractionEnabled = YES ;
         [self addGestureRecognizer:self.twoTap];
     }];
-    
 }
-
-
 
 #pragma mark - ❤️加载网络图
 -(void)setNetWorkImage:(UIImageView *)imageView urlStr:(NSString *)urlStr 
 {
-
     //初始位置
     self.originalImageView = imageView;
     UIWindow * window = [[[UIApplication sharedApplication] delegate] window];
     CGRect originalRect = [imageView convertRect: imageView.bounds toView:window];
     self.mainImageView.frame = originalRect;
-
-
-    
+	
     //diy
     self.mainImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.mainImageView.clipsToBounds = YES;
-    
-    
+	
     //动画变换设置frame与背景颜色
     [UIView animateWithDuration:AnimationTime animations:^{
-        
         [self setFrameAndZoom:imageView];
         self.maximumZoomScale =1;
         self.minimumZoomScale =1;
         self.superview.backgroundColor = [UIColor blackColor];
-        
     } completion:^(BOOL finished) {
-        
-       
          self.userInteractionEnabled = YES ;
-        
             //变换完动画 从网络开始加载图
             [self.mainImageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:self.mainImageView.image       options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                 
@@ -150,19 +134,13 @@
     }];
 }
 
-
-
-
 #pragma mark - 🈲计算frame 核心代码
 -(void)setFrameAndZoom:(UIImageView *)imageView
 {
     //ImageView.image的大小
     CGFloat   imageH;
     CGFloat   imageW;
-    
-    
-    
-    
+	
     //设置空image时的情况
     if(imageView.image == nil || imageView.image.size.width == 0 || imageView.image.size.height ==0)
     {
@@ -178,34 +156,25 @@
         imageH = imageView.image.size.height;
         self.mainImageView.image = imageView.image;
     }
-    
-    
-    
+	
     //设置主图片Frame 与缩小比例
     if(imageW >= (imageH * (mainW/mainH)))//横着
     {
-        
         //设置居中frame
         CGFloat  myX_ =  0;
         CGFloat  myW_ = mainW;
         CGFloat  myH_  = myW_ *(imageH/imageW);;
         CGFloat  myY_ = mainH - myH_ - ((mainH - myH_)/2);
         
-        
         self.mainImageView.frame = CGRectMake(myX_, myY_, myW_, myH_);
-        
-        
+		
         //判断原图是小图还是大图来判断,是可以缩放,还是可以放大
         if (imageW >  myW_) {
             self.maximumZoomScale = 2*(imageW/myW_ ) ;//放大比例
-
         }else
         {
             self.minimumZoomScale = (imageW/myW_);//缩小比例
-   
         }
-        
-        
     }else//竖着
     {
         
@@ -230,14 +199,12 @@
     
 }
 
-
 #pragma mark - ❤️滚动栏 代理方法
 //开始缩放,一开始会自动调用几次,并且要返回告来诉scroll我要缩放哪一个控件.
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
        return self.mainImageView;
 }
-
 
 //缩放时调用 ,确定中心点代理方法
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
@@ -299,9 +266,7 @@
         }];
         
     });
-    
 }
-
 
 //双击放大或者缩小
 -(void)beginZoom:(UITapGestureRecognizer*)tap

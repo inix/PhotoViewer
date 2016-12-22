@@ -68,7 +68,6 @@
 
 -(void)setPhotoData:(NSArray *)photoArr Type:(JJPhotoViewerType)type
 {
-    
     //设置可滚动范围
     self.contentSize =  CGSizeMake(photoArr.count * self.frame.size.width, 0);
     
@@ -81,12 +80,8 @@
         if(photo.isSelecImageView == YES)
         {
             selcImageIndex = i;
-            
-       
             break;
         }
-        
-        
     }
     
     //设置首个展示页面
@@ -107,10 +102,8 @@
         oneScroll.frame = CGRectMake((i*self.frame.size.width)+Gap , 0 ,MianW, MianH);
         [self addSubview:oneScroll];
         
-        
         //加载图片方式
         switch (type) {
-                
                 //本地加载图图❤️
             case JJLocalWithLocalPhotoViewer:
                 [oneScroll setLocalImage:photo.imageView  ];
@@ -127,7 +120,6 @@
     }
     
 }
-
 
 #pragma mark - 😄滚动监听 重置缩放
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -154,18 +146,10 @@
                 [one reloadFrame];
             }else
             {
-
-                
-
             }
         }
     }
 }
-
-
-
-
-
 
 #pragma mark - OneScroll的代理方法
 
